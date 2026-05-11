@@ -19,7 +19,7 @@ from isaaclab.utils import configclass
 from himloco_lab.assets import unitree_actuators
 
 UNITREE_MODEL_DIR = "path/to/unitree_model"  # Replace with the actual path to your unitree_model directory
-UNITREE_ROS_DIR = "path/to/unitree_ros"  # Replace with the actual path to your unitree_ros package
+UNITREE_ROS_DIR = "/home/umar/robot_lab/source/robot_lab/data/Robots"  # Replace with the actual path to your unitree_ros package
 
 @configclass
 class UnitreeArticulationCfg(ArticulationCfg):
@@ -94,7 +94,7 @@ class UnitreeUrdfFileCfg(sim_utils.UrdfFileCfg):
 
 UNITREE_GO2_CFG = UnitreeArticulationCfg(
     spawn=UnitreeUrdfFileCfg(
-        asset_path=f"{UNITREE_ROS_DIR}/robots/go2_description/urdf/go2_description.urdf",
+        asset_path=f"{UNITREE_ROS_DIR}/unitree/go2_description/urdf/go2_description.urdf",
     ),
     # spawn=UnitreeUsdFileCfg(
     #     usd_path=f"{UNITREE_MODEL_DIR}/Go2/usd/go2.usd",
