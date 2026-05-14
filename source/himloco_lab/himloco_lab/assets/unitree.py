@@ -94,27 +94,28 @@ class UnitreeUrdfFileCfg(sim_utils.UrdfFileCfg):
 
 UNITREE_GO2_CFG = UnitreeArticulationCfg(
     spawn=UnitreeUrdfFileCfg(
-        asset_path=f"{UNITREE_ROS_DIR}/unitree/go2_description/urdf/go2_description.urdf",
+        # asset_path=f"{UNITREE_ROS_DIR}/unitree/go2_description/urdf/go2_description.urdf",
+        asset_path=f"{UNITREE_ROS_DIR}/unitree/jamal_description/urdf/jamal_himloco.urdf",
     ),
     # spawn=UnitreeUsdFileCfg(
     #     usd_path=f"{UNITREE_MODEL_DIR}/Go2/usd/go2.usd",
     # ),
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.4),
+        pos=(0.0, 0.0, 0.38),
         joint_pos={
-            ".*R_hip_joint": -0.1,
-            ".*L_hip_joint": 0.1,
-            "F[L,R]_thigh_joint": 0.8,
-            "R[L,R]_thigh_joint": 1.0,
-            ".*_calf_joint": -1.5,
+            ".*R_hip_joint": -0.0, #was -0.1
+            ".*L_hip_joint": 0.0, #was 0.1
+            "F[L,R]_thigh_joint": 0.72,
+            "R[L,R]_thigh_joint": 0.8,
+            ".*_calf_joint": -1.35,
         },
         joint_vel={".*": 0.0},
     ),
     actuators={
         "GO2HV": unitree_actuators.UnitreeActuatorCfg_Go2HV(
             joint_names_expr=[".*"],
-            stiffness=25.0,
-            damping=0.5,
+            stiffness=30.0,
+            damping=0.8,
             friction=0.01,
         ),
     },

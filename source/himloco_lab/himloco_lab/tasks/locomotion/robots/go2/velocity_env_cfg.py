@@ -324,7 +324,7 @@ class RewardsCfg:
     # -- base
     base_linear_velocity = RewTerm(func=mdp.lin_vel_z_l2, weight=-2.0)
     base_angular_velocity = RewTerm(func=mdp.ang_vel_xy_l2, weight=-0.05)
-    flat_orientation_l2 = RewTerm(func=mdp.flat_orientation_l2, weight=-0.2)
+    flat_orientation_l2 = RewTerm(func=mdp.flat_orientation_l2, weight=-0.5) #-0.2)
     joint_acc = RewTerm(func=mdp.joint_acc_l2, weight=-2.5e-7)
     energy = RewTerm(func=mdp.energy, weight=-2e-5)
     
@@ -332,7 +332,7 @@ class RewardsCfg:
         func=mdp.base_height, 
         weight=-1.0, 
         params={
-            "target_height": 0.3,
+            "target_height": 0.36, #0.3,
             "sensor_cfg": SceneEntityCfg("base_height_scanner"),
         },
     )
@@ -342,7 +342,7 @@ class RewardsCfg:
         weight=-0.01,
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names=".*_foot"),
-            "target_height": -0.2,
+            "target_height": -0.32, #-0.2,
             "command_name": "base_velocity",
         }
     )
@@ -461,7 +461,8 @@ class TerminationsCfg:
 @configclass
 class CurriculumCfg:
     """Curriculum terms for the MDP."""
-
+    # terrain_levels =  None
+    # ////////////////////////////////////////////////////////////////
     terrain_levels = CurrTerm(func=mdp.terrain_levels_vel)
     lin_vel_cmd_levels = CurrTerm(mdp.lin_vel_cmd_levels)
 

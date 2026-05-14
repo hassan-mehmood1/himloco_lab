@@ -114,8 +114,16 @@ class UnitreeActuatorCfg_M107_24(UnitreeActuatorCfg):
 class UnitreeActuatorCfg_Go2HV(UnitreeActuatorCfg):
     X1 = 13.5
     X2 = 30
-    Y1 = 20.2
-    Y2 = 23.4
+    Y1 = 40.2
+    Y2 = 43.4
+
+@configclass
+class UnitreeActuatorCfg_JamalHV(UnitreeActuatorCfg):
+    X1 = 4.0
+    X2 = 5.65
+    Y1 = 120.0
+    Y2 = 120.0
+    
 
 
 @configclass
